@@ -10,12 +10,14 @@ instance Functor Logger where
     fmap f (Logger msg a) = Logger msg (f a)
 
 squareLog x = fmap square x
-
+-- TRY EXAMPLE :
+-- squareLog q
 
 instance Applicative Logger where
     pure  = Logger ""
     (Logger msg1 f) <*> (Logger msg2 a) = Logger (msg1++msg2) (f a)
 
+-- EXAMPLE OF Applicative FUNCTOR
 r = pure (*) <*> Logger "mult three " 3 <*> Logger "and four" 4
 
 
