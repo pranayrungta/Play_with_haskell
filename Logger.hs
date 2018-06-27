@@ -25,3 +25,7 @@ instance Monad Logger where
                             in Logger (msg1++msg2) b
 
 square' t = Logger "squaring " (t*t)
+cube' t = Logger "cubing" (t*t*t)
+
+compose' x = return x >>= square' >>= cube'
+-- TRY compose' 4
